@@ -191,7 +191,7 @@
         @keyframes autoridadeCardIn {
             from {
                 opacity: 0;
-                transform: translateY(14px) scale(0.96);
+                transform: translateY(10px) scale(0.97);
             }
             to {
                 opacity: 1;
@@ -203,13 +203,13 @@
             z-index: 2;
             opacity: 0;
             height: 100%;
-            animation: autoridadeCardIn 0.4s ease-out both;
-            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            animation: autoridadeCardIn 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        /* Após hero (último item ~2,85s): cards entram em sequência rápida */
-        .autoridade-cards .autoridade-card:nth-child(1) { animation-delay: 3s; }
-        .autoridade-cards .autoridade-card:nth-child(2) { animation-delay: 3.08s; }
-        .autoridade-cards .autoridade-card:nth-child(3) { animation-delay: 3.16s; }
+        /* Após hero (~2,85s): sequência rápida */
+        .autoridade-cards .autoridade-card:nth-child(1) { animation-delay: 2.9s; }
+        .autoridade-cards .autoridade-card:nth-child(2) { animation-delay: 2.93s; }
+        .autoridade-cards .autoridade-card:nth-child(3) { animation-delay: 2.96s; }
         .autoridade-card:hover {
             transform: translateY(-0.5rem);
         }
