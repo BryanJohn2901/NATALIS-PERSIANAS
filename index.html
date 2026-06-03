@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" class="scroll-smooth">
+<html lang="pt-BR" id="site" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,11 +43,45 @@
     </script>
     
     <style>
-        /* Um único scroll na página (evita barra dupla) */
-        html {
+        /* Um único scroll na página — html#site (evita barra dupla) */
+        html#site {
             scroll-behavior: smooth;
+            scroll-padding-top: 1rem;
             overflow-x: clip;
             overflow-y: scroll;
+            scrollbar-gutter: stable;
+            scrollbar-width: thin;
+            scrollbar-color: #0c739a #f9fafb;
+        }
+        html#site::-webkit-scrollbar {
+            width: 10px;
+        }
+        html#site::-webkit-scrollbar-track {
+            background: #f9fafb;
+        }
+        html#site::-webkit-scrollbar-thumb {
+            background: #0c739a;
+            border-radius: 999px;
+            border: 2px solid #f9fafb;
+        }
+        html#site::-webkit-scrollbar-thumb:hover {
+            background: #1e3362;
+        }
+        :root {
+            --motion-duration: 0.55s;
+            --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+            --motion-stagger: 0.1s;
+            --hero-end: 1.9s;
+        }
+        .duration-motion {
+            transition-duration: var(--motion-duration);
+            transition-timing-function: var(--motion-ease);
+        }
+        .transition,
+        .transition-colors,
+        .transition-transform {
+            transition-duration: var(--motion-duration);
+            transition-timing-function: var(--motion-ease);
         }
         body {
             overflow-x: clip;
@@ -203,13 +237,13 @@
             z-index: 2;
             opacity: 0;
             height: 100%;
-            animation: autoridadeCardIn 0.22s cubic-bezier(0.22, 1, 0.36, 1) both;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            animation: autoridadeCardIn var(--motion-duration) var(--motion-ease) both;
+            transition: transform var(--motion-duration) var(--motion-ease),
+                        box-shadow var(--motion-duration) var(--motion-ease);
         }
-        /* Após hero (~2,85s): sequência rápida */
-        .autoridade-cards .autoridade-card:nth-child(1) { animation-delay: 2.9s; }
-        .autoridade-cards .autoridade-card:nth-child(2) { animation-delay: 2.93s; }
-        .autoridade-cards .autoridade-card:nth-child(3) { animation-delay: 2.96s; }
+        .autoridade-cards .autoridade-card:nth-child(1) { animation-delay: calc(var(--hero-end) + 0.1s); }
+        .autoridade-cards .autoridade-card:nth-child(2) { animation-delay: calc(var(--hero-end) + 0.2s); }
+        .autoridade-cards .autoridade-card:nth-child(3) { animation-delay: calc(var(--hero-end) + 0.3s); }
         .autoridade-card:hover {
             transform: translateY(-0.5rem);
         }
@@ -246,7 +280,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: transform var(--motion-duration) var(--motion-ease);
         }
         .produto-card:hover img {
             transform: scale(1.07);
@@ -264,7 +298,7 @@
                 transparent 100%
             );
             color: #fff;
-            transition: padding 0.4s ease;
+            transition: padding var(--motion-duration) var(--motion-ease);
         }
         .produto-card:hover .produto-card__overlay {
             padding-bottom: 2.25rem;
@@ -287,7 +321,8 @@
             max-height: 0;
             overflow: hidden;
             opacity: 0;
-            transition: max-height 0.45s ease, opacity 0.35s ease 0.05s;
+            transition: max-height var(--motion-duration) var(--motion-ease),
+                        opacity var(--motion-duration) var(--motion-ease) 0.05s;
         }
         .produto-card:hover .produto-card__desc {
             max-height: 5rem;
@@ -342,7 +377,7 @@
             position: absolute;
             inset: 0;
             opacity: 0;
-            transition: opacity 0.9s ease-in-out;
+            transition: opacity var(--motion-duration) var(--motion-ease);
             pointer-events: none;
         }
         .carousel__slide.is-active {
@@ -372,7 +407,8 @@
             border: none;
             cursor: pointer;
             box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-            transition: background 0.2s, transform 0.2s;
+            transition: background var(--motion-duration) var(--motion-ease),
+                        transform var(--motion-duration) var(--motion-ease);
         }
         .carousel__btn:hover {
             background: #fff;
@@ -487,7 +523,7 @@
         @media (hover: hover) {
             .btn-shine:hover::after,
             .btn-shine:focus-visible::after {
-                animation: btn-shine-sweep 0.55s ease-in-out forwards;
+                animation: btn-shine-sweep var(--motion-duration) var(--motion-ease) forwards;
             }
         }
         @keyframes btn-shine-sweep {
@@ -509,9 +545,9 @@
             to   { opacity: 1; }
         }
 
-        .hero-content .site-logo  { animation: heroFadeDown 0.65s ease-out 0.15s both; }
-        .hero-content .hero-title { animation: heroFadeUp   0.60s ease-out 0.80s both; }
-        .hero-content .hero-text  { animation: heroFadeUp   0.55s ease-out 1.45s both; }
+        .hero-content .site-logo  { animation: heroFadeDown var(--motion-duration) var(--motion-ease) 0.08s both; }
+        .hero-content .hero-title { animation: heroFadeUp   var(--motion-duration) var(--motion-ease) 0.45s both; }
+        .hero-content .hero-text  { animation: heroFadeUp   var(--motion-duration) var(--motion-ease) 0.82s both; }
 
         /* Pulso suave — só sombra (não mexe em transform, evita sumir no hover) */
         .btn-pulse {
@@ -519,11 +555,11 @@
             animation: btn-breathe 2.8s ease-in-out infinite;
         }
         .hero-content .btn-pulse {
-            animation: heroFadeUp 0.5s ease-out 2.05s both,
-                       btn-breathe 2.8s ease-in-out 2.65s infinite;
+            animation: heroFadeUp var(--motion-duration) var(--motion-ease) 1.15s both,
+                       btn-breathe 2.8s ease-in-out 1.85s infinite;
         }
         .hero-content .hero-btn-produtos {
-            animation: heroFadeUp 0.5s ease-out 2.35s both;
+            animation: heroFadeUp var(--motion-duration) var(--motion-ease) 1.35s both;
         }
         @media (hover: hover) {
             .hero-content .btn-pulse:hover {
@@ -616,10 +652,10 @@
             </p>
             
             <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-                <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Gostaria+de+solicitar+um+or%C3%A7amento+gratuito+na+N%C3%A1talis+Persianas.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine btn-pulse inline-flex w-full sm:w-auto items-center justify-center px-6 sm:px-10 py-3.5 sm:py-4 text-xs sm:text-sm uppercase tracking-widest font-bold text-white transition-all duration-300 bg-brand-blue rounded-md hover:bg-opacity-90 shadow-lg hover:-translate-y-1">
+                <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Gostaria+de+solicitar+um+or%C3%A7amento+gratuito+na+N%C3%A1talis+Persianas.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine btn-pulse inline-flex w-full sm:w-auto items-center justify-center px-6 sm:px-10 py-3.5 sm:py-4 text-xs sm:text-sm uppercase tracking-widest font-bold text-white transition-all duration-motion bg-brand-blue rounded-md hover:bg-opacity-90 shadow-lg hover:-translate-y-1">
                     Solicitar Orçamento Gratuito
                 </a>
-                <a href="#produtos" class="hero-btn-produtos inline-flex w-full sm:w-auto items-center justify-center px-6 sm:px-10 py-3.5 sm:py-4 text-xs sm:text-sm uppercase tracking-widest font-bold text-brand-blue transition-all duration-300 bg-white/90 border-2 border-brand-blue rounded-md hover:bg-brand-blue hover:text-white shadow-md hover:-translate-y-1">
+                <a href="#produtos" class="hero-btn-produtos inline-flex w-full sm:w-auto items-center justify-center px-6 sm:px-10 py-3.5 sm:py-4 text-xs sm:text-sm uppercase tracking-widest font-bold text-brand-blue transition-all duration-motion bg-white/90 border-2 border-brand-blue rounded-md hover:bg-brand-blue hover:text-white shadow-md hover:-translate-y-1">
                     Nossos Produtos
                 </a>
             </div>
@@ -634,10 +670,10 @@
             <div class="autoridade-cards">
                 
                 <!-- Item 1: Experiência -->
-                <div id="autoridade-experiencia" class="autoridade-card group bg-white rounded-2xl p-10 sm:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-500">
+                <div id="autoridade-experiencia" class="autoridade-card group bg-white rounded-2xl p-10 sm:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-motion">
                     <div class="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-8 sm:mb-10">
                         <!-- Círculo decorativo de fundo (Efeito Hover) -->
-                        <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-500"></div>
+                        <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-motion"></div>
                         <!-- Círculo principal -->
                         <div class="relative w-full h-full bg-brand-blue rounded-full flex items-center justify-center text-white shadow-md">
                             <i class="fas fa-clock text-3xl sm:text-4xl" aria-hidden="true"></i>
@@ -646,35 +682,35 @@
                     <h3 class="font-serif text-3xl sm:text-4xl text-brand-blue font-bold mb-2">24 Anos</h3>
                     <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">de Tradição</p>
                     <!-- Linha divisória delicada -->
-                    <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-500 group-hover:w-20"></div>
+                    <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-motion group-hover:w-20"></div>
                     <p class="text-sm sm:text-base text-gray-500 font-light leading-relaxed">Experiência consolidada vestindo os ambientes de Curitiba.</p>
                 </div>
     
                 <!-- Item 2: Avaliação -->
-                <div id="autoridade-google" class="autoridade-card group bg-white rounded-2xl p-10 sm:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-500">
+                <div id="autoridade-google" class="autoridade-card group bg-white rounded-2xl p-10 sm:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-motion">
                     <div class="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-8 sm:mb-10">
-                        <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-500"></div>
+                        <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-motion"></div>
                         <div class="relative w-full h-full bg-brand-blue rounded-full flex items-center justify-center text-white shadow-md">
                             <i class="fas fa-star text-3xl sm:text-4xl" aria-hidden="true"></i>
                         </div>
                     </div>
                     <h3 class="font-serif text-3xl sm:text-4xl text-brand-blue font-bold mb-2">5 Estrelas</h3>
                     <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">no Google</p>
-                    <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-500 group-hover:w-20"></div>
+                    <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-motion group-hover:w-20"></div>
                     <p class="text-sm sm:text-base text-gray-500 font-light leading-relaxed">Avaliação máxima e reconhecimento total de nossos clientes.</p>
                 </div>
     
                 <!-- Item 3: Personalização -->
-                <div id="autoridade-sob-medida" class="autoridade-card group bg-white rounded-2xl p-10 sm:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-500">
+                <div id="autoridade-sob-medida" class="autoridade-card group bg-white rounded-2xl p-10 sm:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-motion">
                     <div class="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-8 sm:mb-10">
-                        <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-500"></div>
+                        <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-motion"></div>
                         <div class="relative w-full h-full bg-brand-blue rounded-full flex items-center justify-center text-white shadow-md">
                             <i class="fas fa-ruler-combined text-3xl sm:text-4xl" aria-hidden="true"></i>
                         </div>
                     </div>
                     <h3 class="font-serif text-3xl sm:text-4xl text-brand-blue font-bold mb-2">Sob Medida</h3>
                     <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">Projetos Únicos</p>
-                    <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-500 group-hover:w-20"></div>
+                    <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-motion group-hover:w-20"></div>
                     <p class="text-sm sm:text-base text-gray-500 font-light leading-relaxed">Caimento perfeito e acabamento impecável para o seu espaço.</p>
                 </div>
     
@@ -701,7 +737,7 @@
                 data-autoplay="true"
                 data-interval="5000"
             >
-                <div class="carousel__viewport" data-aos="fade-up" data-aos-duration="900">
+                <div class="carousel__viewport" data-aos="fade-up">
                     <div id="carousel-track" class="carousel__track"></div>
                     <div class="carousel__progress" aria-hidden="true">
                         <div class="carousel__progress-bar" id="carousel-progress-bar"></div>
@@ -1169,20 +1205,28 @@
             return;
         }
 
+        var MOTION_DURATION = 550;
+        var MOTION_STAGGER = 100;
+
         /* Stagger automático nos cards de produto e depoimentos via JS */
         document.querySelectorAll('#cortinas-galeria .produto-card, #persianas-galeria .produto-card').forEach(function(el, i) {
             el.setAttribute('data-aos', 'fade-up');
-            el.setAttribute('data-aos-delay', String((i % 3) * 80));
-            el.setAttribute('data-aos-duration', '600');
+            el.setAttribute('data-aos-delay', String((i % 3) * MOTION_STAGGER));
+            el.setAttribute('data-aos-duration', String(MOTION_DURATION));
         });
 
         document.querySelectorAll('#depoimentos .grid > div').forEach(function(el, i) {
             el.setAttribute('data-aos', 'fade-up');
-            el.setAttribute('data-aos-delay', String(i * 120));
+            el.setAttribute('data-aos-delay', String(i * MOTION_STAGGER));
+            el.setAttribute('data-aos-duration', String(MOTION_DURATION));
+        });
+
+        document.querySelectorAll('[data-aos]:not([data-aos-duration])').forEach(function(el) {
+            el.setAttribute('data-aos-duration', String(MOTION_DURATION));
         });
 
         AOS.init({
-            duration:  650,
+            duration:  MOTION_DURATION,
             easing:    'ease-out-cubic',
             once:      true,
             offset:    60,
