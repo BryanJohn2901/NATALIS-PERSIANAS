@@ -507,6 +507,9 @@
             animation: heroFadeUp 0.5s ease-out 2.05s both,
                        btn-breathe 2.8s ease-in-out 2.65s infinite;
         }
+        .hero-content .hero-btn-produtos {
+            animation: heroFadeUp 0.5s ease-out 2.35s both;
+        }
         @media (hover: hover) {
             .hero-content .btn-pulse:hover {
                 animation-play-state: paused;
@@ -522,7 +525,8 @@
             .hero-content .site-logo,
             .hero-content .hero-title,
             .hero-content .hero-text,
-            .hero-content .btn-pulse { animation: none; opacity: 1; }
+            .hero-content .btn-pulse,
+            .hero-content .hero-btn-produtos { animation: none; opacity: 1; }
             .btn-pulse { animation: none; }
         }
 
@@ -591,9 +595,14 @@
                 Persianas e cortinas sob medida que transformam sua casa ou escritório. Há mais de 24 anos vestindo as janelas de Curitiba com qualidade, pontualidade e instalação impecável.
             </p>
             
-            <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Gostaria+de+solicitar+um+or%C3%A7amento+gratuito+na+N%C3%A1talis+Persianas.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine btn-pulse inline-flex w-full sm:w-auto items-center justify-center px-6 sm:px-10 py-3.5 sm:py-4 text-xs sm:text-sm uppercase tracking-widest font-bold text-white transition-all duration-300 bg-brand-blue rounded-md hover:bg-opacity-90 shadow-lg hover:-translate-y-1">
-                Solicitar Orçamento Gratuito
-            </a>
+            <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+                <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Gostaria+de+solicitar+um+or%C3%A7amento+gratuito+na+N%C3%A1talis+Persianas.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine btn-pulse inline-flex w-full sm:w-auto items-center justify-center px-6 sm:px-10 py-3.5 sm:py-4 text-xs sm:text-sm uppercase tracking-widest font-bold text-white transition-all duration-300 bg-brand-blue rounded-md hover:bg-opacity-90 shadow-lg hover:-translate-y-1">
+                    Solicitar Orçamento Gratuito
+                </a>
+                <a href="#produtos" class="hero-btn-produtos inline-flex w-full sm:w-auto items-center justify-center px-6 sm:px-10 py-3.5 sm:py-4 text-xs sm:text-sm uppercase tracking-widest font-bold text-brand-blue transition-all duration-300 bg-white/90 border-2 border-brand-blue rounded-md hover:bg-brand-blue hover:text-white shadow-md hover:-translate-y-1">
+                    Nossos Produtos
+                </a>
+            </div>
         </div>
     </header>
 
