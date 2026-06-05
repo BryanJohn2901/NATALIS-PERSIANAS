@@ -121,7 +121,7 @@
             isolation: isolate;
             min-height: 90vh;
             min-height: 90dvh;
-            background-image: url("assets/hero-background.png");
+            background-image: url("assets/slides_site-5.jpg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -134,11 +134,10 @@
             pointer-events: none;
             background: linear-gradient(
                 100deg,
-                rgba(249, 250, 251, 0.94) 0%,
-                rgba(249, 250, 251, 0.82) 26%,
-                rgba(249, 250, 251, 0.52) 42%,
-                rgba(249, 250, 251, 0.18) 56%,
-                transparent 68%
+                rgba(255, 255, 255, 0.95) 0%,
+                rgba(255, 255, 255, 0.85) 30%,
+                rgba(255, 255, 255, 0.50) 60%,
+                transparent 80%
             );
         }
         .hero-content {
@@ -176,39 +175,27 @@
         #autoridade {
             position: relative;
             z-index: 10;
-            padding-top: 0;
+            padding-top: 4rem;
             padding-bottom: 4rem;
             overflow: visible;
-            background: linear-gradient(
-                to bottom,
-                transparent 0,
-                transparent 4.5rem,
-                #f9fafb 4.5rem,
-                #f9fafb 100%
-            );
+            background: #f9fafb;
         }
         @media (min-width: 640px) {
             #autoridade {
-                background: linear-gradient(
-                    to bottom,
-                    transparent 0,
-                    transparent 5.5rem,
-                    #f9fafb 5.5rem,
-                    #f9fafb 100%
-                );
+                background: #f9fafb;
             }
         }
         .autoridade-cards-wrap {
             position: relative;
             z-index: 20;
-            margin-top: -6.5rem;
+            margin-top: 0;
             padding-bottom: 0.5rem;
         }
         @media (min-width: 640px) {
-            .autoridade-cards-wrap { margin-top: -7.5rem; }
+            .autoridade-cards-wrap { margin-top: 0; }
         }
         @media (min-width: 1024px) {
-            .autoridade-cards-wrap { margin-top: -8.5rem; }
+            .autoridade-cards-wrap { margin-top: 0; }
         }
         .autoridade-cards {
             display: grid;
@@ -474,9 +461,10 @@
         /* Galeria — fundo com foto real do projeto + overlay elegante */
         #galeria {
             position: relative;
-            background-image: url('assets/cortina-wave-sala-jantar-luxo.jpeg');
+            background-image: url('assets/cortina-dupla-voil-sala-jantar.png');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
         }
         #galeria::before {
             content: '';
@@ -662,61 +650,7 @@
         </div>
     </header>
 
-    <!-- 2. Faixa de Autoridade — cards com ~30% sobre o hero -->
-    <section id="autoridade" class="sm:pb-24 relative" aria-labelledby="autoridade-titulo">
-        <div class="autoridade-cards-wrap max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-10">
-            <h2 id="autoridade-titulo" class="sr-only">Nossos diferenciais</h2>
-            
-            <div class="autoridade-cards">
-                
-                <!-- Item 1: Experiência -->
-                <div id="autoridade-experiencia" class="autoridade-card group bg-white rounded-2xl p-10 sm:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-motion">
-                    <div class="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-8 sm:mb-10">
-                        <!-- Círculo decorativo de fundo (Efeito Hover) -->
-                        <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-motion"></div>
-                        <!-- Círculo principal -->
-                        <div class="relative w-full h-full bg-brand-blue rounded-full flex items-center justify-center text-white shadow-md">
-                            <i class="fas fa-clock text-3xl sm:text-4xl" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <h3 class="font-serif text-3xl sm:text-4xl text-brand-blue font-bold mb-2">24 Anos</h3>
-                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">de Tradição</p>
-                    <!-- Linha divisória delicada -->
-                    <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-motion group-hover:w-20"></div>
-                    <p class="text-sm sm:text-base text-gray-500 font-light leading-relaxed">Experiência consolidada vestindo os ambientes de Curitiba.</p>
-                </div>
-    
-                <!-- Item 2: Avaliação -->
-                <div id="autoridade-google" class="autoridade-card group bg-white rounded-2xl p-10 sm:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-motion">
-                    <div class="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-8 sm:mb-10">
-                        <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-motion"></div>
-                        <div class="relative w-full h-full bg-brand-blue rounded-full flex items-center justify-center text-white shadow-md">
-                            <i class="fas fa-star text-3xl sm:text-4xl" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <h3 class="font-serif text-3xl sm:text-4xl text-brand-blue font-bold mb-2">5 Estrelas</h3>
-                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">no Google</p>
-                    <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-motion group-hover:w-20"></div>
-                    <p class="text-sm sm:text-base text-gray-500 font-light leading-relaxed">Avaliação máxima e reconhecimento total de nossos clientes.</p>
-                </div>
-    
-                <!-- Item 3: Personalização -->
-                <div id="autoridade-sob-medida" class="autoridade-card group bg-white rounded-2xl p-10 sm:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-motion">
-                    <div class="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-8 sm:mb-10">
-                        <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-motion"></div>
-                        <div class="relative w-full h-full bg-brand-blue rounded-full flex items-center justify-center text-white shadow-md">
-                            <i class="fas fa-ruler-combined text-3xl sm:text-4xl" aria-hidden="true"></i>
-                        </div>
-                    </div>
-                    <h3 class="font-serif text-3xl sm:text-4xl text-brand-blue font-bold mb-2">Sob Medida</h3>
-                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">Projetos Únicos</p>
-                    <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-motion group-hover:w-20"></div>
-                    <p class="text-sm sm:text-base text-gray-500 font-light leading-relaxed">Caimento perfeito e acabamento impecável para o seu espaço.</p>
-                </div>
-    
-            </div>
-        </div>
-    </section>
+
 
     <!-- Galeria — carrossel automático (imagens em /assets) -->
     <section id="galeria" class="py-12 sm:py-16" aria-labelledby="galeria-titulo">
@@ -899,6 +833,36 @@
         </div>
     </section>
 
+    <!-- Seção Institucional -->
+    <section id="institucional" class="py-16 sm:py-24 bg-brand-light" aria-labelledby="institucional-titulo">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <img src="assets/loja-fisica.jpg" alt="Loja Física Nátalis Persianas" class="rounded-2xl shadow-2xl w-full h-auto object-cover aspect-[4/3]">
+                </div>
+                <div data-aos="fade-left">
+                    <p class="text-xs font-semibold uppercase tracking-[0.22em] text-brand-cyan mb-3">Nossa História</p>
+                    <h2 id="institucional-titulo" class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brand-blue mb-6">Tradição e Qualidade em Curitiba</h2>
+                    <div class="w-14 h-px bg-brand-cyan mb-6" aria-hidden="true"></div>
+                    <p class="text-gray-600 text-base sm:text-lg leading-relaxed mb-6">
+                        Com mais de 24 anos de experiência no mercado, a <strong>Nátalis Persianas</strong> tornou-se referência em Curitiba na confecção de cortinas sob medida e revenda das melhores marcas de persianas.
+                    </p>
+                    <p class="text-gray-600 text-base sm:text-lg leading-relaxed mb-8">
+                        Em nossa loja física, você encontra um atendimento personalizado, focado em entender suas necessidades e entregar projetos que unem elegância, conforto e um acabamento impecável. Venha conhecer nosso showroom e descubra a solução ideal para o seu ambiente.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Gostaria+de+saber+mais+sobre+a+loja+f%C3%ADsica.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-block bg-brand-blue text-white px-8 py-3.5 rounded-md text-sm font-semibold hover:bg-opacity-90 transition text-center uppercase tracking-wider shadow-lg hover:-translate-y-1">
+                            Falar com um Consultor
+                        </a>
+                        <a href="#mapa" class="inline-block bg-white border border-gray-200 text-brand-blue px-8 py-3.5 rounded-md text-sm font-semibold hover:bg-gray-50 transition text-center uppercase tracking-wider shadow-sm">
+                            Como Chegar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- 4. Prova Social (Fundo Azul/Ciano) -->
     <section id="depoimentos" class="bg-brand-cyan text-white py-12 sm:py-16 md:py-20" aria-labelledby="depoimentos-titulo">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
@@ -956,6 +920,62 @@
                 <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Vi+as+avalia%C3%A7%C3%B5es+da+N%C3%A1talis+Persianas+no+Google+e+gostaria+de+um+atendimento+exclusivo.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-block w-full sm:w-auto max-w-md sm:max-w-none bg-white text-brand-cyan font-bold px-6 sm:px-8 py-3 rounded-md hover:bg-gray-100 transition shadow-lg text-sm sm:text-base">
                     Solicitar meu atendimento exclusivo
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Faixa de Autoridade — Movida para perto do rodapé -->
+    <section id="autoridade" class="sm:pb-24 relative pt-16 sm:pt-20" aria-labelledby="autoridade-titulo">
+        <div class="autoridade-cards-wrap max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-10">
+            <h2 id="autoridade-titulo" class="sr-only">Nossos diferenciais</h2>
+            
+            <div class="autoridade-cards">
+                
+                <!-- Item 1: Experiência -->
+                <div id="autoridade-experiencia" class="autoridade-card group bg-white rounded-2xl p-10 sm:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-motion" data-aos="fade-up" data-aos-delay="0">
+                    <div class="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-8 sm:mb-10">
+                        <!-- Círculo decorativo de fundo (Efeito Hover) -->
+                        <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-motion"></div>
+                        <!-- Círculo principal -->
+                        <div class="relative w-full h-full bg-brand-blue rounded-full flex items-center justify-center text-white shadow-md">
+                            <i class="fas fa-clock text-3xl sm:text-4xl" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-serif text-3xl sm:text-4xl text-brand-blue font-bold mb-2">24 Anos</h3>
+                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">de Tradição</p>
+                    <!-- Linha divisória delicada -->
+                    <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-motion group-hover:w-20"></div>
+                    <p class="text-sm sm:text-base text-gray-500 font-light leading-relaxed">Experiência consolidada vestindo os ambientes de Curitiba.</p>
+                </div>
+    
+                <!-- Item 2: Avaliação -->
+                <div id="autoridade-google" class="autoridade-card group bg-white rounded-2xl p-10 sm:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-motion" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-8 sm:mb-10">
+                        <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-motion"></div>
+                        <div class="relative w-full h-full bg-brand-blue rounded-full flex items-center justify-center text-white shadow-md">
+                            <i class="fas fa-star text-3xl sm:text-4xl" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-serif text-3xl sm:text-4xl text-brand-blue font-bold mb-2">5 Estrelas</h3>
+                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">no Google</p>
+                    <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-motion group-hover:w-20"></div>
+                    <p class="text-sm sm:text-base text-gray-500 font-light leading-relaxed">Avaliação máxima e reconhecimento total de nossos clientes.</p>
+                </div>
+    
+                <!-- Item 3: Personalização -->
+                <div id="autoridade-sob-medida" class="autoridade-card group bg-white rounded-2xl p-10 sm:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-motion" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-8 sm:mb-10">
+                        <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-motion"></div>
+                        <div class="relative w-full h-full bg-brand-blue rounded-full flex items-center justify-center text-white shadow-md">
+                            <i class="fas fa-ruler-combined text-3xl sm:text-4xl" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-serif text-3xl sm:text-4xl text-brand-blue font-bold mb-2">Sob Medida</h3>
+                    <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">Projetos Únicos</p>
+                    <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-motion group-hover:w-20"></div>
+                    <p class="text-sm sm:text-base text-gray-500 font-light leading-relaxed">Caimento perfeito e acabamento impecável para o seu espaço.</p>
+                </div>
+    
             </div>
         </div>
     </section>
