@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nátalis Persianas, Elegância e Conforto</title>
     
-    <!-- Google Fonts: Montserrat (Modern Sans, clean e legível) e Playfair Display para toques premium -->
+    <!-- Tipografia: Montserrat (texto) + Plus Jakarta Sans (títulos — moderna, acessível, segmento casa/decoração) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Font Awesome 6 Free -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -27,7 +27,7 @@
                 extend: {
                     fontFamily: {
                         sans: ['Montserrat', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
+                        display: ['Plus Jakarta Sans', 'sans-serif'],
                     },
                     colors: {
                         brand: {
@@ -150,10 +150,11 @@
             filter: none;
         }
         .hero-content .hero-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
             color: #1e3362;
             text-shadow: none;
             text-transform: uppercase;
-            font-weight: 900;
+            font-weight: 800;
             text-wrap: balance;
         }
         .hero-content .hero-text {
@@ -458,6 +459,153 @@
             to { width: 100%; }
         }
 
+        /* Widget de avaliações Google — carrossel estilo TrustIndex */
+        .reviews-carousel {
+            position: relative;
+            max-width: 42rem;
+            margin: 0 auto;
+        }
+        .reviews-carousel__viewport {
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+        .reviews-carousel__track {
+            display: flex;
+            transition: transform var(--motion-duration) var(--motion-ease);
+        }
+        .reviews-carousel__slide {
+            flex: 0 0 100%;
+            min-width: 100%;
+            padding: 0 0.25rem;
+        }
+        .review-card {
+            background: #fff;
+            color: #1f2937;
+            border-radius: 1rem;
+            padding: 1.5rem 1.75rem;
+            box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.2);
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+        }
+        .review-card__header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .review-card__author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .review-card__avatar {
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 999px;
+            background: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #6b7280;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+        }
+        .review-card__name {
+            font-weight: 700;
+            font-size: 0.9rem;
+            line-height: 1.3;
+        }
+        .review-card__date {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+        .review-card__google {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #4285f4;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            flex-shrink: 0;
+        }
+        .review-card__stars {
+            color: #facc15;
+            font-size: 0.95rem;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.75rem;
+        }
+        .review-card__text {
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.65;
+            flex-grow: 1;
+        }
+        .reviews-carousel__footer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+        .reviews-carousel__btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background var(--motion-duration) var(--motion-ease),
+                        transform var(--motion-duration) var(--motion-ease);
+        }
+        .reviews-carousel__btn:hover {
+            background: rgba(255, 255, 255, 0.22);
+            transform: scale(1.05);
+        }
+        .reviews-carousel__btn:focus-visible {
+            outline: 2px solid #fff;
+            outline-offset: 2px;
+        }
+        .reviews-carousel__dots {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .reviews-carousel__dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 999px;
+            border: none;
+            padding: 0;
+            background: rgba(255, 255, 255, 0.35);
+            cursor: pointer;
+            transition: background var(--motion-duration) var(--motion-ease),
+                        transform var(--motion-duration) var(--motion-ease);
+        }
+        .reviews-carousel__dot.is-active {
+            background: #fff;
+            transform: scale(1.2);
+        }
+        .reviews-carousel__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.85);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .reviews-carousel__track { transition: none; }
+        }
+
         /* Galeria — fundo com foto real do projeto + overlay elegante */
         #galeria {
             position: relative;
@@ -640,7 +788,8 @@
             </p>
             
             <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
-                <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Gostaria+de+solicitar+um+or%C3%A7amento+gratuito+na+N%C3%A1talis+Persianas.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine btn-pulse inline-flex w-full sm:w-auto items-center justify-center px-6 sm:px-10 py-3.5 sm:py-4 text-xs sm:text-sm uppercase tracking-widest font-bold text-white transition-all duration-motion bg-brand-blue rounded-md hover:bg-opacity-90 shadow-lg hover:-translate-y-1">
+                <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Gostaria+de+solicitar+um+or%C3%A7amento+gratuito+na+N%C3%A1talis+Persianas.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine btn-pulse inline-flex w-full sm:w-auto items-center justify-center gap-2 px-6 sm:px-10 py-3.5 sm:py-4 text-xs sm:text-sm uppercase tracking-widest font-bold text-white transition-all duration-motion bg-brand-blue rounded-md hover:bg-opacity-90 shadow-lg hover:-translate-y-1">
+                    <i class="fab fa-whatsapp text-lg sm:text-xl" aria-hidden="true"></i>
                     Solicitar Orçamento Gratuito
                 </a>
                 <a href="#produtos" class="hero-btn-produtos inline-flex w-full sm:w-auto items-center justify-center px-6 sm:px-10 py-3.5 sm:py-4 text-xs sm:text-sm uppercase tracking-widest font-bold text-brand-blue transition-all duration-motion bg-white/90 border-2 border-brand-blue rounded-md hover:bg-brand-blue hover:text-white shadow-md hover:-translate-y-1">
@@ -657,7 +806,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-8 sm:mb-12">
                 <p class="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300 mb-3">Portfólio</p>
-                <h2 id="galeria-titulo" class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Galeria de Projetos</h2>
+                <h2 id="galeria-titulo" class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Galeria de Projetos</h2>
                 <div class="w-14 h-px bg-cyan-300 mx-auto mb-4" aria-hidden="true"></div>
                 <p class="text-white/70 font-light text-sm sm:text-base max-w-2xl mx-auto">Alguns dos nossos trabalhos em cortinas e persianas sob medida.</p>
             </div>
@@ -695,7 +844,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-10 sm:mb-16" data-aos="fade-up">
                 <p class="text-xs font-semibold uppercase tracking-[0.22em] text-brand-cyan mb-3">Soluções</p>
-                <h2 id="produtos-titulo" class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brand-blue mb-4">Nossos Produtos</h2>
+                <h2 id="produtos-titulo" class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-brand-blue mb-4">Nossos Produtos</h2>
                 <div class="w-14 h-px bg-brand-cyan mx-auto mb-4" aria-hidden="true"></div>
                 <p class="text-gray-500 font-light text-sm sm:text-base max-w-2xl mx-auto px-1">Trabalhamos com os melhores tecidos sintéticos e naturais para garantir o controle exato da iluminação e conforto.</p>
             </div>
@@ -706,12 +855,15 @@
                     <p class="text-xs font-semibold uppercase tracking-[0.22em] text-brand-cyan mb-3">Tecidos & Modelos</p>
                     <div class="flex flex-col sm:flex-row sm:items-end gap-4 sm:gap-10">
                         <div class="flex-1">
-                            <h3 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-brand-blue mb-3">Cortinas Tradicionais</h3>
+                            <h3 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-brand-blue mb-3">Cortinas Tradicionais</h3>
                             <div class="w-10 h-px bg-brand-cyan mb-4" aria-hidden="true"></div>
                             <p class="text-gray-600 text-sm sm:text-base leading-relaxed max-w-xl">Transformam qualquer ambiente. Tecidos, tramas, barras e cores escolhidos à mão, do moderno ao clássico, com caimento perfeito e acabamento impecável.</p>
                         </div>
                         <div class="shrink-0">
-                            <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Tenho+interesse+em+cortinas+sob+medida+e+gostaria+de+um+or%C3%A7amento.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-block w-full sm:w-auto bg-brand-blue text-white px-8 py-3 rounded-md text-sm font-semibold hover:bg-opacity-90 transition text-center uppercase tracking-wider">Escolher meu modelo</a>
+                            <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Tenho+interesse+em+cortinas+sob+medida+e+gostaria+de+um+or%C3%A7amento.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-brand-blue text-white px-8 py-3 rounded-md text-sm font-semibold hover:bg-opacity-90 transition uppercase tracking-wider">
+                                <i class="fab fa-whatsapp text-lg" aria-hidden="true"></i>
+                                Escolher meu modelo
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -768,12 +920,15 @@
                     <p class="text-xs font-semibold uppercase tracking-[0.22em] text-brand-cyan mb-3">Controle & Privacidade</p>
                     <div class="flex flex-col sm:flex-row sm:items-end gap-4 sm:gap-10">
                         <div class="flex-1">
-                            <h3 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-brand-blue mb-3">Persianas</h3>
+                            <h3 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-brand-blue mb-3">Persianas</h3>
                             <div class="w-10 h-px bg-brand-cyan mb-4" aria-hidden="true"></div>
                             <p class="text-gray-600 text-sm sm:text-base leading-relaxed max-w-xl">Praticidade e elegância para todos os ambientes. Controle preciso da iluminação e privacidade nas linhas Rolô, Romana, Horizontal e Painel.</p>
                         </div>
                         <div class="shrink-0">
-                            <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Tenho+interesse+em+persianas+e+gostaria+de+um+or%C3%A7amento.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-block w-full sm:w-auto bg-brand-blue text-white px-8 py-3 rounded-md text-sm font-semibold hover:bg-opacity-90 transition text-center uppercase tracking-wider">Conferir modelos</a>
+                            <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Tenho+interesse+em+persianas+e+gostaria+de+um+or%C3%A7amento.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-brand-blue text-white px-8 py-3 rounded-md text-sm font-semibold hover:bg-opacity-90 transition uppercase tracking-wider">
+                                <i class="fab fa-whatsapp text-lg" aria-hidden="true"></i>
+                                Conferir modelos
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -826,7 +981,8 @@
             
             <div id="produtos-cta" class="text-center mt-12 sm:mt-20 px-2">
                 <p class="text-brand-blue font-light text-lg sm:text-xl mb-5 sm:mb-6">Os melhores tecidos, exclusivos para cada projeto</p>
-                <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Gostaria+de+solicitar+um+atendimento+exclusivo+na+N%C3%A1talis+Persianas.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-block w-full sm:w-auto max-w-md sm:max-w-none border border-gray-300 bg-white text-gray-700 font-medium px-6 sm:px-8 py-3 rounded-md hover:bg-gray-50 transition shadow-sm text-sm sm:text-base">
+                <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Gostaria+de+solicitar+um+atendimento+exclusivo+na+N%C3%A1talis+Persianas.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex w-full sm:w-auto max-w-md sm:max-w-none items-center justify-center gap-2 border border-gray-300 bg-white text-gray-700 font-medium px-6 sm:px-8 py-3 rounded-md hover:bg-gray-50 transition shadow-sm text-sm sm:text-base">
+                    <i class="fab fa-whatsapp text-lg text-[#25D366]" aria-hidden="true"></i>
                     Solicitar meu atendimento exclusivo
                 </a>
             </div>
@@ -842,7 +998,7 @@
                 </div>
                 <div data-aos="fade-left">
                     <p class="text-xs font-semibold uppercase tracking-[0.22em] text-brand-cyan mb-3">Nossa História</p>
-                    <h2 id="institucional-titulo" class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-brand-blue mb-6">Tradição e Qualidade em Curitiba</h2>
+                    <h2 id="institucional-titulo" class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-brand-blue mb-6">Tradição e Qualidade em Curitiba</h2>
                     <div class="w-14 h-px bg-brand-cyan mb-6" aria-hidden="true"></div>
                     <p class="text-gray-600 text-base sm:text-lg leading-relaxed mb-6">
                         Com mais de 24 anos de experiência no mercado, a <strong>Nátalis Persianas</strong> tornou-se referência em Curitiba na confecção de cortinas sob medida e revenda das melhores marcas de persianas.
@@ -851,7 +1007,8 @@
                         Em nossa loja física, você encontra um atendimento personalizado, focado em entender suas necessidades e entregar projetos que unem elegância, conforto e um acabamento impecável. Venha conhecer nosso showroom e descubra a solução ideal para o seu ambiente.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Gostaria+de+saber+mais+sobre+a+loja+f%C3%ADsica.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-block bg-brand-blue text-white px-8 py-3.5 rounded-md text-sm font-semibold hover:bg-opacity-90 transition text-center uppercase tracking-wider shadow-lg hover:-translate-y-1">
+                        <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Gostaria+de+saber+mais+sobre+a+loja+f%C3%ADsica.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex items-center justify-center gap-2 bg-brand-blue text-white px-8 py-3.5 rounded-md text-sm font-semibold hover:bg-opacity-90 transition uppercase tracking-wider shadow-lg hover:-translate-y-1">
+                            <i class="fab fa-whatsapp text-lg" aria-hidden="true"></i>
                             Falar com um Consultor
                         </a>
                         <a href="#mapa" class="inline-block bg-white border border-gray-200 text-brand-blue px-8 py-3.5 rounded-md text-sm font-semibold hover:bg-gray-50 transition text-center uppercase tracking-wider shadow-sm">
@@ -868,7 +1025,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-10 sm:mb-16" data-aos="fade-up">
                 <p class="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200 mb-3">Avaliações</p>
-                <h2 id="depoimentos-titulo" class="font-serif text-3xl sm:text-4xl md:text-5xl font-bold mb-4 px-2">O que falam de nós</h2>
+                <h2 id="depoimentos-titulo" class="font-display text-3xl sm:text-4xl md:text-5xl font-bold mb-4 px-2">O que falam de nós</h2>
                 <div class="w-14 h-px bg-white/40 mx-auto mb-5" aria-hidden="true"></div>
                 <div class="flex flex-wrap justify-center items-center gap-x-2 gap-y-1 mb-2 px-2">
                     <span class="font-bold text-base sm:text-lg">EXCELENTE</span>
@@ -877,47 +1034,37 @@
                 <p class="text-xs sm:text-sm text-cyan-100">Com base em 249 avaliações do Google</p>
             </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-                <!-- Card 1 -->
-                <div id="depoimento-1" class="bg-white text-gray-800 p-5 sm:p-6 rounded-xl shadow-xl flex flex-col min-h-0">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-500">T</div>
-                        <div>
-                            <p class="font-bold text-sm">Thiago Kessler Chicora</p>
-                            <p class="text-xs text-gray-500">3 meses atrás</p>
-                        </div>
-                    </div>
-                    <div class="text-yellow-400 text-sm mb-3">★★★★★</div>
-                    <p class="text-sm font-light leading-relaxed flex-grow">"Excelente atendimento e produto impecável! As persianas e cortinas sob medida ficaram perfeitas no ambiente, com ótimo acabamento e instalação cuidadosa..."</p>
+            <div
+                id="reviews-carousel"
+                class="reviews-carousel"
+                data-aos="fade-up"
+                role="region"
+                aria-roledescription="carrossel"
+                aria-label="Avaliações do Google"
+                data-autoplay="true"
+                data-interval="6000"
+            >
+                <div class="reviews-carousel__viewport">
+                    <div id="reviews-track" class="reviews-carousel__track" aria-live="polite"></div>
                 </div>
-                <!-- Card 2 -->
-                <div id="depoimento-2" class="bg-white text-gray-800 p-5 sm:p-6 rounded-xl shadow-xl flex flex-col min-h-0">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-500">K</div>
-                        <div>
-                            <p class="font-bold text-sm">Kelly Dionisio</p>
-                            <p class="text-xs text-gray-500">4 meses atrás</p>
-                        </div>
-                    </div>
-                    <div class="text-yellow-400 text-sm mb-3">★★★★★</div>
-                    <p class="text-sm font-light leading-relaxed flex-grow">"Maravilhoso trabalho! Super organizados. Fazem todo o serviço sem deixar nenhuma bagunça. Material super resistente e moderno. Perfeitos!"</p>
+                <div class="reviews-carousel__footer">
+                    <button type="button" class="reviews-carousel__btn" id="reviews-prev" aria-label="Avaliação anterior">
+                        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                    </button>
+                    <div class="reviews-carousel__dots" id="reviews-dots" role="tablist" aria-label="Selecionar avaliação"></div>
+                    <button type="button" class="reviews-carousel__btn" id="reviews-next" aria-label="Próxima avaliação">
+                        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                    </button>
                 </div>
-                <!-- Card 3 -->
-                <div id="depoimento-3" class="bg-white text-gray-800 p-5 sm:p-6 rounded-xl shadow-xl flex flex-col min-h-0 sm:col-span-2 lg:col-span-1">
-                    <div class="flex items-center gap-3 mb-4">
-                        <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center font-bold text-gray-500">L</div>
-                        <div>
-                            <p class="font-bold text-sm">Lívia Maria</p>
-                            <p class="text-xs text-gray-500">4 meses atrás</p>
-                        </div>
-                    </div>
-                    <div class="text-yellow-400 text-sm mb-3">★★★★★</div>
-                    <p class="text-sm font-light leading-relaxed flex-grow">"Você quer uma persiana perfeita? É na Natalis. Você quer bom atendimento? A Natalis tem. Palavra de consumidora exigente e satisfeita!"</p>
-                </div>
+                <p class="reviews-carousel__badge text-center justify-center">
+                    <i class="fab fa-google" aria-hidden="true"></i>
+                    Avaliações verificadas do Google Meu Negócio
+                </p>
             </div>
-            
+
             <div id="depoimentos-cta" class="text-center mt-10 sm:mt-12 px-2">
-                <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Vi+as+avalia%C3%A7%C3%B5es+da+N%C3%A1talis+Persianas+no+Google+e+gostaria+de+um+atendimento+exclusivo.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-block w-full sm:w-auto max-w-md sm:max-w-none bg-white text-brand-cyan font-bold px-6 sm:px-8 py-3 rounded-md hover:bg-gray-100 transition shadow-lg text-sm sm:text-base">
+                <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Vi+as+avalia%C3%A7%C3%B5es+da+N%C3%A1talis+Persianas+no+Google+e+gostaria+de+um+atendimento+exclusivo.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex w-full sm:w-auto max-w-md sm:max-w-none items-center justify-center gap-2 bg-white text-brand-cyan font-bold px-6 sm:px-8 py-3 rounded-md hover:bg-gray-100 transition shadow-lg text-sm sm:text-base">
+                    <i class="fab fa-whatsapp text-lg" aria-hidden="true"></i>
                     Solicitar meu atendimento exclusivo
                 </a>
             </div>
@@ -941,7 +1088,7 @@
                             <i class="fas fa-clock text-3xl sm:text-4xl" aria-hidden="true"></i>
                         </div>
                     </div>
-                    <h3 class="font-serif text-3xl sm:text-4xl text-brand-blue font-bold mb-2">24 Anos</h3>
+                    <h3 class="font-display text-3xl sm:text-4xl text-brand-blue font-bold mb-2">24 Anos</h3>
                     <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">de Tradição</p>
                     <!-- Linha divisória delicada -->
                     <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-motion group-hover:w-20"></div>
@@ -956,7 +1103,7 @@
                             <i class="fas fa-star text-3xl sm:text-4xl" aria-hidden="true"></i>
                         </div>
                     </div>
-                    <h3 class="font-serif text-3xl sm:text-4xl text-brand-blue font-bold mb-2">5 Estrelas</h3>
+                    <h3 class="font-display text-3xl sm:text-4xl text-brand-blue font-bold mb-2">5 Estrelas</h3>
                     <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">no Google</p>
                     <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-motion group-hover:w-20"></div>
                     <p class="text-sm sm:text-base text-gray-500 font-light leading-relaxed">Avaliação máxima e reconhecimento total de nossos clientes.</p>
@@ -970,7 +1117,7 @@
                             <i class="fas fa-ruler-combined text-3xl sm:text-4xl" aria-hidden="true"></i>
                         </div>
                     </div>
-                    <h3 class="font-serif text-3xl sm:text-4xl text-brand-blue font-bold mb-2">Sob Medida</h3>
+                    <h3 class="font-display text-3xl sm:text-4xl text-brand-blue font-bold mb-2">Sob Medida</h3>
                     <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">Projetos Únicos</p>
                     <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-motion group-hover:w-20"></div>
                     <p class="text-sm sm:text-base text-gray-500 font-light leading-relaxed">Caimento perfeito e acabamento impecável para o seu espaço.</p>
@@ -985,17 +1132,17 @@
     <!-- 5. Rodapé -->
     <footer id="contato" class="bg-[#0a6587] text-white border-t border-cyan-700">
 
-        <!-- Mapa Google Maps full-width no topo -->
+        <!-- Mapa: vincular no Google Meu Negócio pelo nome "Nátalis Persianas" (zoom 13 = bairros próximos visíveis) -->
         <div id="mapa" class="w-full" style="height:380px;">
             <iframe
-                src="https://www.google.com/maps?q=Av.+Pres.+Get%C3%BAlio+Vargas,+1153,+Rebou%C3%A7as,+Curitiba,+PR,+80250-180&output=embed&hl=pt-BR"
+                src="https://www.google.com/maps?q=N%C3%A1talis+Persianas+Curitiba&hl=pt-BR&z=13&output=embed"
                 width="100%"
                 height="100%"
                 style="border:0; display:block;"
                 allowfullscreen=""
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
-                title="Localização Nátalis Persianas, Av. Pres. Getúlio Vargas, 1153, Rebouças, Curitiba">
+                title="Nátalis Persianas no Google Maps, Curitiba">
             </iframe>
         </div>
 
@@ -1020,6 +1167,12 @@
                     <p class="flex items-start gap-2">
                         <i class="fas fa-location-dot fa-fw mt-0.5 shrink-0" aria-hidden="true"></i>
                         <span>Av. Pres. Getúlio Vargas, 1153, Loja 39<br>Rebouças, Curitiba, PR, 80250-180<br><span class="text-cyan-200">🚗 Estacionamento próprio</span></span>
+                    </p>
+                    <p>
+                        <a href="https://www.google.com/maps/search/?api=1&query=N%C3%A1talis+Persianas+Curitiba" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-cyan-100 hover:text-white transition-colors">
+                            <i class="fab fa-google" aria-hidden="true"></i>
+                            Ver Nátalis Persianas no Google Maps
+                        </a>
                     </p>
                 </div>
             </div>
@@ -1213,6 +1366,128 @@
     })();
     </script>
 
+    <script>
+    (function () {
+        var REVIEWS = [
+            { id: 'depoimento-1', initial: 'T', name: 'Thiago Kessler Chicora', date: '3 meses atrás', text: 'Excelente atendimento e produto impecável! As persianas e cortinas sob medida ficaram perfeitas no ambiente, com ótimo acabamento e instalação cuidadosa.' },
+            { id: 'depoimento-2', initial: 'K', name: 'Kelly Dionisio', date: '4 meses atrás', text: 'Maravilhoso trabalho! Super organizados. Fazem todo o serviço sem deixar nenhuma bagunça. Material super resistente e moderno. Perfeitos!' },
+            { id: 'depoimento-3', initial: 'L', name: 'Lívia Maria', date: '4 meses atrás', text: 'Você quer uma persiana perfeita? É na Natalis. Você quer bom atendimento? A Natalis tem. Palavra de consumidora exigente e satisfeita!' },
+            { id: 'depoimento-4', initial: 'C', name: 'Cristiane Alves', date: '5 meses atrás', text: 'Profissionais pontuais e muito atenciosos. As cortinas ficaram lindas e o ambiente ficou muito mais aconchegante. Recomendo de olhos fechados!' },
+            { id: 'depoimento-5', initial: 'M', name: 'Marcos Henrique', date: '6 meses atrás', text: 'Orçamento rápido, instalação no prazo e acabamento impecável. A persiana rolô blackout ficou exatamente como eu queria para o home office.' },
+            { id: 'depoimento-6', initial: 'A', name: 'Ana Paula Ribeiro', date: '7 meses atrás', text: 'Atendimento consultivo de verdade. Me ajudaram a escolher o modelo ideal para a sala e o resultado superou as expectativas. Empresa de confiança em Curitiba.' }
+        ];
+
+        var root = document.getElementById('reviews-carousel');
+        var track = document.getElementById('reviews-track');
+        var dotsWrap = document.getElementById('reviews-dots');
+        var btnPrev = document.getElementById('reviews-prev');
+        var btnNext = document.getElementById('reviews-next');
+        if (!root || !track || !dotsWrap) return;
+
+        var current = 0;
+        var timer = null;
+        var interval = parseInt(root.getAttribute('data-interval') || '6000', 10);
+        var autoplay = root.getAttribute('data-autoplay') === 'true';
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
+        function buildSlides() {
+            track.innerHTML = '';
+            dotsWrap.innerHTML = '';
+            REVIEWS.forEach(function (review, i) {
+                var slide = document.createElement('article');
+                slide.className = 'reviews-carousel__slide';
+                slide.id = review.id;
+                slide.setAttribute('role', 'group');
+                slide.setAttribute('aria-roledescription', 'slide');
+                slide.setAttribute('aria-label', (i + 1) + ' de ' + REVIEWS.length);
+                slide.innerHTML =
+                    '<div class="review-card">' +
+                        '<div class="review-card__header">' +
+                            '<div class="review-card__author">' +
+                                '<div class="review-card__avatar" aria-hidden="true">' + escapeHtml(review.initial) + '</div>' +
+                                '<div>' +
+                                    '<p class="review-card__name">' + escapeHtml(review.name) + '</p>' +
+                                    '<p class="review-card__date">' + escapeHtml(review.date) + '</p>' +
+                                '</div>' +
+                            '</div>' +
+                            '<span class="review-card__google"><i class="fab fa-google" aria-hidden="true"></i> Google</span>' +
+                        '</div>' +
+                        '<div class="review-card__stars" aria-label="5 de 5 estrelas">★★★★★</div>' +
+                        '<p class="review-card__text">&ldquo;' + escapeHtml(review.text) + '&rdquo;</p>' +
+                    '</div>';
+                track.appendChild(slide);
+
+                var dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = 'reviews-carousel__dot' + (i === 0 ? ' is-active' : '');
+                dot.setAttribute('role', 'tab');
+                dot.setAttribute('aria-label', 'Avaliação ' + (i + 1));
+                dot.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+                dot.addEventListener('click', function () {
+                    goTo(i);
+                    startAutoplay();
+                });
+                dotsWrap.appendChild(dot);
+            });
+        }
+
+        function updateUI() {
+            track.style.transform = 'translateX(-' + (current * 100) + '%)';
+            var dots = dotsWrap.querySelectorAll('.reviews-carousel__dot');
+            dots.forEach(function (dot, i) {
+                dot.classList.toggle('is-active', i === current);
+                dot.setAttribute('aria-selected', i === current ? 'true' : 'false');
+            });
+        }
+
+        function goTo(index) {
+            current = (index + REVIEWS.length) % REVIEWS.length;
+            updateUI();
+        }
+
+        function next() { goTo(current + 1); }
+        function prev() { goTo(current - 1); }
+
+        function startAutoplay() {
+            if (!autoplay || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            stopAutoplay();
+            timer = setInterval(next, interval);
+        }
+
+        function stopAutoplay() {
+            if (timer) {
+                clearInterval(timer);
+                timer = null;
+            }
+        }
+
+        buildSlides();
+        updateUI();
+
+        btnPrev.addEventListener('click', function () { prev(); startAutoplay(); });
+        btnNext.addEventListener('click', function () { next(); startAutoplay(); });
+        root.addEventListener('mouseenter', stopAutoplay);
+        root.addEventListener('mouseleave', startAutoplay);
+        root.addEventListener('focusin', stopAutoplay);
+        root.addEventListener('focusout', function (e) {
+            if (!root.contains(e.relatedTarget)) startAutoplay();
+        });
+        document.addEventListener('visibilitychange', function () {
+            if (document.hidden) stopAutoplay();
+            else startAutoplay();
+        });
+
+        startAutoplay();
+    })();
+    </script>
+
 
     <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -1232,12 +1507,6 @@
         document.querySelectorAll('#cortinas-galeria .produto-card, #persianas-galeria .produto-card').forEach(function(el, i) {
             el.setAttribute('data-aos', 'fade-up');
             el.setAttribute('data-aos-delay', String((i % 3) * MOTION_STAGGER));
-            el.setAttribute('data-aos-duration', String(MOTION_DURATION));
-        });
-
-        document.querySelectorAll('#depoimentos .grid > div').forEach(function(el, i) {
-            el.setAttribute('data-aos', 'fade-up');
-            el.setAttribute('data-aos-delay', String(i * MOTION_STAGGER));
             el.setAttribute('data-aos-duration', String(MOTION_DURATION));
         });
 
