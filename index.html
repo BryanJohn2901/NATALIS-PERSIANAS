@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" id="site" class="scroll-smooth">
+<html lang="pt-BR" id="site" class="scroll-smooth theme-dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -51,18 +51,18 @@
             overflow-y: scroll;
             scrollbar-gutter: stable;
             scrollbar-width: thin;
-            scrollbar-color: #0c739a #f9fafb;
+            scrollbar-color: #0c739a #070b14;
         }
         html#site::-webkit-scrollbar {
             width: 10px;
         }
         html#site::-webkit-scrollbar-track {
-            background: #f9fafb;
+            background: #070b14;
         }
         html#site::-webkit-scrollbar-thumb {
             background: #0c739a;
             border-radius: 999px;
-            border: 2px solid #f9fafb;
+            border: 2px solid #070b14;
         }
         html#site::-webkit-scrollbar-thumb:hover {
             background: #1e3362;
@@ -72,6 +72,12 @@
             --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
             --motion-stagger: 0.1s;
             --hero-end: 1.9s;
+            --surface-0: #070b14;
+            --surface-1: #0f172a;
+            --surface-2: #1e293b;
+            --surface-3: #334155;
+            --text-primary: #f1f5f9;
+            --text-muted: #94a3b8;
         }
         .duration-motion {
             transition-duration: var(--motion-duration);
@@ -122,13 +128,13 @@
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
         
-        /* Hero — 90vh, imagem + overlay à esquerda */
+        /* Hero — 90vh, imagem + overlay escuro à esquerda */
         .hero-bg {
             position: relative;
             isolation: isolate;
             min-height: 90vh;
             min-height: 90dvh;
-            background-image: url("assets/slides_site-5.jpg");
+            background-image: url("assets/fotos-prime/bl7a8789.jpg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -141,10 +147,10 @@
             pointer-events: none;
             background: linear-gradient(
                 100deg,
-                rgba(255, 255, 255, 0.95) 0%,
-                rgba(255, 255, 255, 0.85) 30%,
-                rgba(255, 255, 255, 0.50) 60%,
-                transparent 80%
+                rgba(7, 11, 20, 0.94) 0%,
+                rgba(7, 11, 20, 0.82) 35%,
+                rgba(7, 11, 20, 0.45) 65%,
+                rgba(7, 11, 20, 0.12) 100%
             );
         }
         .hero-content {
@@ -154,22 +160,32 @@
         .hero-content .site-logo__img {
             margin-left: 0;
             margin-right: auto;
-            filter: none;
+            filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.45));
         }
         .hero-content .hero-title {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            color: #1e3362;
+            color: var(--text-primary);
             text-shadow: none;
             text-transform: uppercase;
             font-weight: 800;
             text-wrap: balance;
         }
         .hero-content .hero-text {
-            color: #374151;
+            color: #cbd5e1;
             text-shadow: none;
         }
+        .hero-btn-produtos {
+            background: rgba(15, 23, 42, 0.88) !important;
+            color: var(--text-primary) !important;
+            border-color: rgba(12, 115, 154, 0.75) !important;
+        }
+        .hero-btn-produtos:hover {
+            background: #0c739a !important;
+            color: #fff !important;
+            border-color: #0c739a !important;
+        }
 
-        /* Hero + cards sobrepostos (~30%) */
+        /* Hero — conteúdo principal sem cards sobrepostos (diferenciais no rodapé) */
         #inicio {
             position: relative;
             z-index: 1;
@@ -186,12 +202,7 @@
             padding-top: 4rem;
             padding-bottom: 4rem;
             overflow: visible;
-            background: #f9fafb;
-        }
-        @media (min-width: 640px) {
-            #autoridade {
-                background: #f9fafb;
-            }
+            background: var(--surface-1);
         }
         .autoridade-cards-wrap {
             position: relative;
@@ -217,28 +228,17 @@
                 gap: 2rem;
             }
         }
-        @keyframes autoridadeCardIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px) scale(0.97);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
-        }
         .autoridade-card {
             position: relative;
             z-index: 2;
-            opacity: 0;
             height: 100%;
-            animation: autoridadeCardIn var(--motion-duration) var(--motion-ease) both;
+            background: var(--surface-2);
+            border-color: var(--surface-3);
             transition: transform var(--motion-duration) var(--motion-ease),
                         box-shadow var(--motion-duration) var(--motion-ease);
         }
-        .autoridade-cards .autoridade-card:nth-child(1) { animation-delay: calc(var(--hero-end) + 0.1s); }
-        .autoridade-cards .autoridade-card:nth-child(2) { animation-delay: calc(var(--hero-end) + 0.2s); }
-        .autoridade-cards .autoridade-card:nth-child(3) { animation-delay: calc(var(--hero-end) + 0.3s); }
+        .autoridade-card h3 { color: var(--text-primary); }
+        .autoridade-card .text-gray-500 { color: var(--text-muted); }
         .autoridade-card:hover {
             transform: translateY(-0.5rem);
         }
@@ -628,7 +628,7 @@
         /* Galeria — fundo com foto real do projeto + overlay elegante */
         #galeria {
             position: relative;
-            background-image: url('assets/cortina-dupla-voil-sala-jantar.png');
+            background-image: url('assets/fotos-prime/ar2a0826.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: scroll;
@@ -738,10 +738,71 @@
             .hero-content .hero-btn-produtos { animation: none; opacity: 1; }
             .btn-pulse { animation: none; }
             .autoridade-card {
-                animation: none;
-                opacity: 1;
                 transform: none;
             }
+        }
+
+        /* ── Tema dark — seções e componentes ───────────────────────────── */
+        html#site.theme-dark body {
+            background-color: var(--surface-0);
+            color: var(--text-primary);
+        }
+        html#site.theme-dark #produtos {
+            background-color: var(--surface-1) !important;
+        }
+        html#site.theme-dark #produtos .text-brand-blue,
+        html#site.theme-dark #produtos h2,
+        html#site.theme-dark #produtos h3 {
+            color: var(--text-primary);
+        }
+        html#site.theme-dark #produtos .text-gray-500,
+        html#site.theme-dark #produtos .text-gray-600 {
+            color: var(--text-muted);
+        }
+        html#site.theme-dark #produtos .btn-outline-light {
+            background: var(--surface-2);
+            border-color: var(--surface-3);
+            color: var(--text-primary);
+        }
+        html#site.theme-dark #produtos .btn-outline-light:hover {
+            background: var(--surface-3);
+        }
+        html#site.theme-dark #institucional {
+            background-color: var(--surface-0) !important;
+        }
+        html#site.theme-dark #institucional .text-brand-blue,
+        html#site.theme-dark #institucional h2 {
+            color: var(--text-primary);
+        }
+        html#site.theme-dark #institucional .text-gray-600 {
+            color: var(--text-muted);
+        }
+        html#site.theme-dark #institucional .btn-outline-light {
+            background: var(--surface-2);
+            border-color: var(--surface-3);
+            color: var(--text-primary);
+        }
+        html#site.theme-dark #institucional .btn-outline-light:hover {
+            background: var(--surface-3);
+        }
+        html#site.theme-dark #depoimentos {
+            background: linear-gradient(180deg, #0a6587 0%, #084d66 100%);
+        }
+        html#site.theme-dark .review-card {
+            background: var(--surface-2);
+            color: var(--text-primary);
+            box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.45);
+        }
+        html#site.theme-dark .review-card__date,
+        html#site.theme-dark .review-card__text {
+            color: var(--text-muted);
+        }
+        html#site.theme-dark .review-card__avatar {
+            background: var(--surface-3);
+            color: var(--text-muted);
+        }
+        html#site.theme-dark #galeria::before {
+            background: rgba(0, 0, 0, 0.72);
         }
 
         /* ── Responsividade ────────────────────────────────────────────── */
@@ -788,10 +849,10 @@
             .hero-bg::before {
                 background: linear-gradient(
                     165deg,
-                    rgba(255, 255, 255, 0.98) 0%,
-                    rgba(255, 255, 255, 0.94) 42%,
-                    rgba(255, 255, 255, 0.72) 68%,
-                    rgba(255, 255, 255, 0.25) 100%
+                    rgba(7, 11, 20, 0.96) 0%,
+                    rgba(7, 11, 20, 0.9) 42%,
+                    rgba(7, 11, 20, 0.65) 68%,
+                    rgba(7, 11, 20, 0.2) 100%
                 );
             }
             .hero-content .hero-title {
@@ -808,10 +869,10 @@
             .hero-bg::before {
                 background: linear-gradient(
                     100deg,
-                    rgba(255, 255, 255, 0.96) 0%,
-                    rgba(255, 255, 255, 0.88) 35%,
-                    rgba(255, 255, 255, 0.55) 58%,
-                    transparent 78%
+                    rgba(7, 11, 20, 0.95) 0%,
+                    rgba(7, 11, 20, 0.85) 35%,
+                    rgba(7, 11, 20, 0.5) 58%,
+                    rgba(7, 11, 20, 0.15) 78%
                 );
             }
         }
@@ -937,9 +998,10 @@
         </style>
     </noscript>
 </head>
-<body class="bg-brand-light text-brand-dark font-sans antialiased min-w-0">
+<body class="bg-[#070b14] text-slate-100 font-sans antialiased min-w-0">
 
     <main id="conteudo-principal">
+    <!-- Ordem padrão (dark): Hero → Galeria → Produtos → Institucional → Depoimentos → Diferenciais → Rodapé -->
 
     <!-- 1. Dobra Principal (Hero) -->
     <header id="inicio" class="hero-bg pt-16 sm:pt-20 pb-20 sm:pb-24 lg:pt-28 lg:pb-28 flex items-center">
@@ -956,11 +1018,11 @@
             </a>
             
             <h1 class="hero-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-snug mb-4 sm:mb-6 max-w-3xl lg:max-w-4xl">
-                Elegância, Controle de Luz e&nbsp;Conforto para o seu Ambiente.
+                Elegância, Controle de Luz e&nbsp;Conforto para Ambientes de Todos os Portes.
             </h1>
             
             <p class="hero-text text-base sm:text-lg md:text-xl max-w-xl mb-8 sm:mb-10 font-light leading-relaxed">
-                Persianas e cortinas sob medida que transformam sua casa ou escritório. Há mais de 24 anos vestindo as janelas de Curitiba com qualidade, pontualidade e instalação impecável.
+                Persianas e cortinas sob medida para residências, empresas e salões com capacidade para até 200 convidados. Há mais de 24 anos vestindo ambientes em Curitiba com qualidade, pontualidade e instalação impecável.
             </p>
             
             <div class="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
@@ -984,7 +1046,7 @@
                 <p class="section-label text-xs font-semibold uppercase tracking-[0.22em] text-cyan-300 mb-3">Portfólio</p>
                 <h2 id="galeria-titulo" class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Galeria de Projetos</h2>
                 <div class="w-14 h-px bg-cyan-300 mx-auto mb-4" aria-hidden="true"></div>
-                <p class="text-white/70 font-light text-sm sm:text-base max-w-2xl mx-auto">Alguns dos nossos trabalhos em cortinas e persianas sob medida.</p>
+                <p class="text-white/70 font-light text-sm sm:text-base max-w-2xl mx-auto">Projetos reais em cortinas e persianas, de ambientes residenciais a salões para até 200 convidados.</p>
             </div>
 
             <div
@@ -1009,14 +1071,14 @@
                     </button>
                 </div>
                 <div class="carousel__footer">
-                    <span class="carousel__counter" id="carousel-counter" aria-live="polite">1 / 28</span>
+                    <span class="carousel__counter" id="carousel-counter" aria-live="polite">1 / 46</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 3. Nossas Soluções (Layout Alternado igual a imagem) -->
-    <section id="produtos" class="py-12 sm:py-16 bg-white" aria-labelledby="produtos-titulo">
+    <section id="produtos" class="py-12 sm:py-16 bg-slate-900" aria-labelledby="produtos-titulo">
         <div class="section-container max-w-6xl">
             <div class="text-center mb-10 sm:mb-16" data-aos="fade-up">
                 <p class="section-label text-xs font-semibold uppercase tracking-[0.22em] text-brand-cyan mb-3">Soluções</p>
@@ -1157,7 +1219,7 @@
             
             <div id="produtos-cta" class="text-center mt-12 sm:mt-20 px-2">
                 <p class="text-brand-blue font-light text-lg sm:text-xl mb-5 sm:mb-6">Os melhores tecidos, exclusivos para cada projeto</p>
-                <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Gostaria+de+solicitar+um+atendimento+exclusivo+na+N%C3%A1talis+Persianas.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex w-full sm:w-auto max-w-md sm:max-w-none items-center justify-center gap-2 border border-gray-300 bg-white text-gray-700 font-medium px-6 sm:px-8 py-3 rounded-md hover:bg-gray-50 transition shadow-sm text-sm sm:text-base">
+                <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Gostaria+de+solicitar+um+atendimento+exclusivo+na+N%C3%A1talis+Persianas.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-outline-light btn-shine inline-flex w-full sm:w-auto max-w-md sm:max-w-none items-center justify-center gap-2 border border-slate-600 bg-slate-800 text-slate-100 font-medium px-6 sm:px-8 py-3 rounded-md hover:bg-slate-700 transition shadow-sm text-sm sm:text-base">
                     <i class="fab fa-whatsapp text-lg text-[#25D366]" aria-hidden="true"></i>
                     Solicitar meu atendimento exclusivo
                 </a>
@@ -1166,11 +1228,11 @@
     </section>
 
     <!-- Seção Institucional -->
-    <section id="institucional" class="py-16 sm:py-24 bg-brand-light" aria-labelledby="institucional-titulo">
+    <section id="institucional" class="py-16 sm:py-24 bg-[#070b14]" aria-labelledby="institucional-titulo">
         <div class="section-container">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
                 <div data-aos="fade-right">
-                    <img src="assets/loja-fisica.jpg" alt="Loja Física Nátalis Persianas" class="rounded-2xl shadow-2xl w-full h-auto object-cover aspect-[4/3]">
+                    <img src="assets/fotos-prime/img_8821.jpg" alt="Ambiente decorado com cortinas e persianas Nátalis Persianas" class="rounded-2xl shadow-2xl w-full h-auto object-cover aspect-[4/3]">
                 </div>
                 <div data-aos="fade-left">
                     <p class="section-label text-xs font-semibold uppercase tracking-[0.22em] text-brand-cyan mb-3">Nossa História</p>
@@ -1180,14 +1242,14 @@
                         Com mais de 24 anos de experiência no mercado, a <strong>Nátalis Persianas</strong> tornou-se referência em Curitiba na confecção de cortinas sob medida e revenda das melhores marcas de persianas.
                     </p>
                     <p class="text-gray-600 text-base sm:text-lg leading-relaxed mb-8">
-                        Em nossa loja física, você encontra um atendimento personalizado, focado em entender suas necessidades e entregar projetos que unem elegância, conforto e um acabamento impecável. Venha conhecer nosso showroom e descubra a solução ideal para o seu ambiente.
+                        Atendemos projetos residenciais, corporativos e salões de eventos com capacidade para até 200 convidados. Em nossa loja física, você encontra consultoria personalizada e acabamento impecável para ambientes de todos os portes.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
                         <a href="https://api.whatsapp.com/send/?phone=5541999613079&text=Ol%C3%A1%21+Gostaria+de+saber+mais+sobre+a+loja+f%C3%ADsica.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" class="btn-shine inline-flex w-full sm:w-auto items-center justify-center gap-2 bg-brand-blue text-white px-8 py-3.5 rounded-md text-sm font-semibold hover:bg-opacity-90 transition uppercase tracking-wider shadow-lg hover:-translate-y-1">
                             <i class="fab fa-whatsapp text-lg shrink-0" aria-hidden="true"></i>
                             Falar com um Consultor
                         </a>
-                        <a href="#mapa" class="inline-flex w-full sm:w-auto items-center justify-center bg-white border border-gray-200 text-brand-blue px-8 py-3.5 rounded-md text-sm font-semibold hover:bg-gray-50 transition uppercase tracking-wider shadow-sm">
+                        <a href="#mapa" class="btn-outline-light inline-flex w-full sm:w-auto items-center justify-center bg-slate-800 border border-slate-600 text-slate-100 px-8 py-3.5 rounded-md text-sm font-semibold hover:bg-slate-700 transition uppercase tracking-wider shadow-sm">
                             Como Chegar
                         </a>
                     </div>
@@ -1255,7 +1317,7 @@
             <div class="autoridade-cards">
                 
                 <!-- Item 1: Experiência -->
-                <div id="autoridade-experiencia" class="autoridade-card group bg-white rounded-2xl p-6 sm:p-8 lg:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-motion" data-aos="fade-up" data-aos-delay="0">
+                <div id="autoridade-experiencia" class="autoridade-card group bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.35)] border border-slate-700 hover:shadow-[0_24px_56px_-12px_rgba(12,115,154,0.25)] hover:-translate-y-2 transition-all duration-motion" data-aos="fade-up" data-aos-delay="0">
                     <div class="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-8 sm:mb-10">
                         <!-- Círculo decorativo de fundo (Efeito Hover) -->
                         <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-motion"></div>
@@ -1272,7 +1334,7 @@
                 </div>
     
                 <!-- Item 2: Avaliação -->
-                <div id="autoridade-google" class="autoridade-card group bg-white rounded-2xl p-6 sm:p-8 lg:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-motion" data-aos="fade-up" data-aos-delay="100">
+                <div id="autoridade-google" class="autoridade-card group bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.35)] border border-slate-700 hover:shadow-[0_24px_56px_-12px_rgba(12,115,154,0.25)] hover:-translate-y-2 transition-all duration-motion" data-aos="fade-up" data-aos-delay="100">
                     <div class="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-8 sm:mb-10">
                         <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-motion"></div>
                         <div class="relative w-full h-full bg-brand-blue rounded-full flex items-center justify-center text-white shadow-md">
@@ -1286,7 +1348,7 @@
                 </div>
     
                 <!-- Item 3: Personalização -->
-                <div id="autoridade-sob-medida" class="autoridade-card group bg-white rounded-2xl p-6 sm:p-8 lg:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.12)] border border-gray-100 hover:shadow-[0_24px_56px_-12px_rgba(30,51,98,0.2)] hover:-translate-y-2 transition-all duration-motion" data-aos="fade-up" data-aos-delay="200">
+                <div id="autoridade-sob-medida" class="autoridade-card group bg-slate-800 rounded-2xl p-6 sm:p-8 lg:p-12 text-center shadow-[0_12px_48px_-12px_rgba(0,0,0,0.35)] border border-slate-700 hover:shadow-[0_24px_56px_-12px_rgba(12,115,154,0.25)] hover:-translate-y-2 transition-all duration-motion" data-aos="fade-up" data-aos-delay="200">
                     <div class="relative w-24 h-24 sm:w-28 sm:h-28 mx-auto mb-8 sm:mb-10">
                         <div class="absolute inset-0 bg-brand-cyan/10 rounded-full scale-[1.15] group-hover:scale-[1.35] transition-transform duration-motion"></div>
                         <div class="relative w-full h-full bg-brand-blue rounded-full flex items-center justify-center text-white shadow-md">
@@ -1296,7 +1358,7 @@
                     <h3 class="font-display text-3xl sm:text-4xl text-brand-blue font-bold mb-2">Sob Medida</h3>
                     <p class="text-sm font-semibold text-gray-500 uppercase tracking-widest">Projetos Únicos</p>
                     <div class="w-12 h-px bg-brand-cyan/40 mx-auto mt-5 mb-4 transition-all duration-motion group-hover:w-20"></div>
-                    <p class="text-sm sm:text-base text-gray-500 font-light leading-relaxed">Caimento perfeito e acabamento impecável para o seu espaço.</p>
+                    <p class="text-sm sm:text-base text-gray-500 font-light leading-relaxed">Projetos sob medida para salões e eventos com capacidade para até 200 convidados.</p>
                 </div>
     
             </div>
@@ -1329,7 +1391,7 @@
             <div id="quem-somos" data-aos="fade-up">
                 <img src="NATALIS-PERSIANAS.png.webp" alt="Nátalis Persianas" class="h-10 sm:h-12 mb-5 brightness-0 invert">
                 <p class="text-sm font-light leading-relaxed text-cyan-100 mb-6 max-w-xs">
-                    Há mais de 24 anos vestindo as janelas de Curitiba com qualidade, pontualidade e instalação impecável.
+                    Há mais de 24 anos vestindo ambientes em Curitiba, de residências a salões para até 200 convidados.
                 </p>
                 <div class="space-y-3 text-sm font-light text-cyan-100">
                     <p class="flex items-center gap-2">
@@ -1399,6 +1461,24 @@
     <script>
     (function () {
         var ASSET_FILES = [
+            'fotos-prime/5553c912-8f4d-4035-950c-30d272a38403.jpg',
+            'fotos-prime/ar2a0821.jpg',
+            'fotos-prime/ar2a0823.jpg',
+            'fotos-prime/ar2a0824.jpg',
+            'fotos-prime/ar2a0826.jpg',
+            'fotos-prime/ar2a0830.jpg',
+            'fotos-prime/ar2a0837.jpg',
+            'fotos-prime/bl7a8780.jpg',
+            'fotos-prime/bl7a8782.jpg',
+            'fotos-prime/bl7a8783.jpg',
+            'fotos-prime/bl7a8787.jpg',
+            'fotos-prime/bl7a8789.jpg',
+            'fotos-prime/img_1747.jpg',
+            'fotos-prime/img_8820-2.jpg',
+            'fotos-prime/img_8821.jpg',
+            'fotos-prime/img_9851.jpg',
+            'fotos-prime/img_9853.jpg',
+            'fotos-prime/img_9855.jpg',
             'cortina-wave-sala-jantar-luxo.jpeg',
             'cortina-dupla-voil-sala-jantar.png',
             'cortina-wave-sala-tijolo.jpeg',
@@ -1450,7 +1530,7 @@
         root.style.setProperty('--carousel-interval', intervalMs + 'ms');
 
         function assetUrl(filename) {
-            return 'assets/' + encodeURIComponent(filename);
+            return 'assets/' + filename.split('/').map(encodeURIComponent).join('/');
         }
 
         function buildSlides() {
