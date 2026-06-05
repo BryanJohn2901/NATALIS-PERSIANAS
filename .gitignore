@@ -4,4 +4,7 @@ Thumbs.db
 .env
 .env.local
 node_modules/
+dist/
 .vercel/
+assets/FOTOS PRIME/
+assets/fotos-prime/
