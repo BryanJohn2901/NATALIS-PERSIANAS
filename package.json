@@ -1,12 +1,7 @@
 {
   "name": "natalis-persianas",
   "private": true,
-  "type": "module",
   "scripts": {
-    "build": "node scripts/build-static.mjs",
-    "deploy": "npm run build && wrangler deploy"
-  },
-  "engines": {
-    "node": ">=18"
+    "deploy": "wrangler deploy"
   }
 }
